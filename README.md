@@ -1,13 +1,14 @@
 # Stable Diffusion
 
-Fork of `stable-diffusion` 26/08/2022 with added Windows setup notes.
+Fork of `stable-diffusion` 26/08/2022 with added Windows setup and usage notes.
 
 ## Windows setup
 Tested with a 11GB Nvidia 1080ti in Windows 10.
 
-1) Clone repo
+1) Clone and cd into repo
    ```
    https://github.com/garethjns/stable-diffusion.git
+   cd stable-diffusion
    ```
 2) Create and activate a Python 3.8 environment using preferred method, e.g.
     ```
