@@ -1,4 +1,37 @@
 # Stable Diffusion
+
+Fork of `stable-diffusion` 26/08/2022 with added Windows setup notes.
+
+## Windows setup
+Tested with a 11GB Nvidia 1080ti in Windows 10.
+
+1) Clone repo
+   ```
+   https://github.com/garethjns/stable-diffusion.git
+   ```
+2) Create and activate a Python 3.8 environment using preferred method, e.g.
+    ```
+    conda create -y -n stable-diffusion python=3.8.5
+    conda activate stable-diffusion
+    ```
+3) Install requirements with cuda versions of torch
+    ```
+    pip install -r requirements.txt --extra-index-url https://download.pytorch.org/whl/cu113
+    pip install -e git+https://github.com/CompVis/taming-transformers.git@master#egg=taming-transformers
+    pip install -e git+https://github.com/openai/CLIP.git@main#egg=clip
+    pip install -e .
+    ```
+4) Download the `sd-v1-4.ckpt` from https://huggingface.co/CompVis/stable-diffusion-v-1-4-original (see below for other weight options)
+5) Copy `sd-v1-4.ckpt`into `models/ldm/stable-diffusion-v1/` and rename `model.ckpt`
+6) Run with reduced `n_samples` to avoid GPU memory allocation error
+    ```
+    python scripts/txt2img.py --prompt "person riding a cat to work" --plms --precision autocast --n_samples 1
+    ```
+7) Enjoy  
+   ![](images/00001.png)
+
+# Original readme
+
 *Stable Diffusion was made possible thanks to a collaboration with [Stability AI](https://stability.ai/) and [Runway](https://runwayml.com/) and builds upon our previous work:*
 
 [**High-Resolution Image Synthesis with Latent Diffusion Models**](https://ommer-lab.com/research/latent-diffusion-models/)<br/>
